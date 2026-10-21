@@ -1,0 +1,16 @@
+replicaCount: 1
+
+image:
+  repository: tp-backend
+  tag: "1.2"
+  pullPolicy: IfNotPresent
+
+service:
+  port: 8080
+
+postgres:
+  image: postgres:16
+  database: tasks
+  user: tasks
+  password: tasks123
+  storage: 1Gi

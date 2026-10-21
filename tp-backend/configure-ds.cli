@@ -1,0 +1,5 @@
+module add --name=org.postgresql --resources=/tmp/postgresql.jar --dependencies=javax.api,jakarta.transaction.api
+embed-server --server-config=standalone.xml --std-out=echo
+/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=org.postgresql,driver-class-name=org.postgresql.Driver)
+data-source add --name=TpDS --jndi-name=java:jboss/datasources/TpDS --driver-name=postgresql --connection-url=jdbc:postgresql://${env.DB_HOST:localhost}:5432/${env.DB_NAME:tasks} --user-name=${env.DB_USER:tasks} --password=${env.DB_PASSWORD:tasks}
+stop-embedded-server

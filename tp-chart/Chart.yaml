@@ -1,0 +1,5 @@
+apiVersion: v2
+name: tp-chart
+description: Chart du TP
+version: 0.1.0
+appVersion: "1.0"
